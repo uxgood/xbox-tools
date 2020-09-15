@@ -1,0 +1,14 @@
+[Unit]
+Description=x3plus hardware watchdog
+Documentation=
+
+[Service]
+Type=simple
+StandardError=journal
+ExecStart=/opt/wtd/wtd
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
